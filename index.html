@@ -270,6 +270,12 @@
             color: #5D4E37;
         }
 
+        .nav-btn.end-test {
+            background: linear-gradient(135deg, #D4C4B8 0%, #C8B8A8 100%);
+            border: 2px solid #B8A898;
+            color: #5D4E37;
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -361,6 +367,7 @@
         <div class="nav-buttons">
             <button class="nav-btn wrong-questions" onclick="showWrongQuestions()">📝 错题集</button>
             <button class="nav-btn history" onclick="showHistory()">📊 成绩记录</button>
+            <button class="nav-btn end-test" onclick="endTest()">🏁 结束测试</button>
         </div>
 
         <div class="pinyin-display">
@@ -564,13 +571,57 @@
             showQuestion();
         }
 
+        // 拼音到汉字的映射，用于更准确的发音
+        const pinyinToHanzi = {
+            // 声母
+            'b': '波', 'p': '坡', 'm': '摸', 'f': '佛', 'd': '得', 't': '特', 'n': '讷', 'l': '勒',
+            'g': '哥', 'k': '科', 'h': '喝', 'j': '基', 'q': '欺', 'x': '希',
+            'zh': '知', 'ch': '吃', 'sh': '诗', 'r': '日', 'z': '资', 'c': '次', 's': '思',
+            'y': '衣', 'w': '屋',
+            // 单韵母
+            'a': '啊', 'o': '喔', 'e': '鹅', 'i': '衣', 'u': '乌', 'ü': '迂',
+            // 复韵母
+            'ai': '哀', 'ei': '诶', 'ui': '威', 'ao': '熬', 'ou': '欧', 'iu': '优', 'ie': '耶', 'üe': '约',
+            // 前鼻韵母
+            'an': '安', 'en': '恩', 'in': '因', 'un': '温', 'ün': '晕',
+            // 后鼻韵母
+            'ang': '昂', 'eng': '亨', 'ing': '英', 'ong': '翁',
+            // 整体认读音节
+            'zhi': '知', 'chi': '吃', 'shi': '诗', 'ri': '日', 'zi': '资', 'ci': '次', 'si': '思',
+            'yi': '衣', 'wu': '屋', 'yu': '迂', 'ye': '耶', 'yue': '约', 'yuan': '冤', 'yin': '因', 'yun': '晕', 'ying': '英'
+        };
+
         // 播放拼音发音
         function playPinyinSound() {
             if ('speechSynthesis' in window) {
-                const utterance = new SpeechSynthesisUtterance(currentPinyin);
+                // 获取可用的中文语音
+                const voices = window.speechSynthesis.getVoices();
+                let chineseVoice = null;
+                
+                // 优先选择中文语音
+                for (let voice of voices) {
+                    if (voice.lang.includes('zh') || voice.lang.includes('CN')) {
+                        chineseVoice = voice;
+                        // 优先选择Google或Microsoft的中文语音
+                        if (voice.name.includes('Google') || voice.name.includes('Microsoft')) {
+                            break;
+                        }
+                    }
+                }
+                
+                // 使用汉字映射来获得更准确的发音
+                const pronounceText = pinyinToHanzi[currentPinyin] || currentPinyin;
+                
+                const utterance = new SpeechSynthesisUtterance(pronounceText);
                 utterance.lang = 'zh-CN';
-                utterance.rate = 0.8;
-                utterance.pitch = 1.2;
+                utterance.rate = 0.6;
+                utterance.pitch = 1.0;
+                utterance.volume = 1.0;
+                
+                if (chineseVoice) {
+                    utterance.voice = chineseVoice;
+                }
+                
                 window.speechSynthesis.speak(utterance);
             }
         }
@@ -725,6 +776,18 @@
             total = 0;
             document.getElementById('score').textContent = score;
             document.getElementById('total').textContent = total;
+        }
+
+        // 结束测试
+        function endTest() {
+            if (total > 0) {
+                saveScore();
+                const percentage = Math.round((score / total) * 100);
+                alert(`测试结束！\n得分: ${score} / ${total}\n正确率: ${percentage}%`);
+            } else {
+                alert('还没有答题哦！');
+            }
+            resetGame();
         }
 
         // 点击模态框外部关闭
