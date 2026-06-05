@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拼音小测试 - 幼儿园版</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', '幼圆', '微软雅黑', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: linear-gradient(145deg, #ffffff 0%, #f0f7ff 100%);
+            border-radius: 30px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 4px solid #ff6b9d;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff6b9d;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .emoji-decoration {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .pinyin-display {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+            border: 3px solid #f39c12;
+            box-shadow: 0 8px 20px rgba(243, 156, 18, 0.3);
+        }
+
+        .pinyin-text {
+            font-size: 4em;
+            color: #2c3e50;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            text-align: center;
+            font-size: 1.5em;
+            color: #3498db;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .option-btn {
+            padding: 20px;
+            font-size: 1.3em;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .option-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .option-btn:active {
+            transform: scale(0.98);
+        }
+
+        .option-1 {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
+            border: 3px solid #c0392b;
+        }
+
+        .option-2 {
+            background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+            border: 3px solid #16a085;
+        }
+
+        .option-3 {
+            background: linear-gradient(135deg, #a8e6cf 0%, #56ab2f 100%);
+            border: 3px solid #27ae60;
+        }
+
+        .option-4 {
+            background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
+            border: 3px solid #8e44ad;
+        }
+
+        .result {
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            font-weight: bold;
+            display: none;
+        }
+
+        .result.correct {
+            background: linear-gradient(135deg, #a8e6cf 0%, #56ab2f 100%);
+            color: white;
+            border: 3px solid #27ae60;
+            display: block;
+        }
+
+        .result.wrong {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
+            color: white;
+            border: 3px solid #c0392b;
+            display: block;
+        }
+
+        .next-btn {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            font-size: 1.5em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 3px solid #5b4cdb;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .next-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .score {
+            text-align: center;
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 15px;
+            border-radius: 15px;
+            border: 3px solid #f39c12;
+        }
+
+        .stars {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .bounce {
+            animation: bounce 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .shake {
+            animation: shake 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji-decoration">🌟🎈🎉🎈🌟</div>
+        <h1>拼音小测试</h1>
+        <div class="emoji-decoration">🐼🦊🐰🐻🐨</div>
+        
+        <div class="score">
+            <div class="stars">⭐⭐⭐</div>
+            <div>得分: <span id="score">0</span> / <span id="total">0</span></div>
+        </div>
+
+        <div class="pinyin-display">
+            <div class="pinyin-text" id="pinyinText">?</div>
+        </div>
+
+        <div class="question">这个拼音是？</div>
+
+        <div class="options">
+            <button class="option-btn option-1" onclick="checkAnswer(0)" id="option0">声母</button>
+            <button class="option-btn option-2" onclick="checkAnswer(1)" id="option1">单韵母</button>
+            <button class="option-btn option-3" onclick="checkAnswer(2)" id="option2">复韵母</button>
+            <button class="option-btn option-4" onclick="checkAnswer(3)" id="option3">整体认读音节</button>
+        </div>
+
+        <div class="result" id="result"></div>
+
+        <button class="next-btn" onclick="nextQuestion()" id="nextBtn" style="display: none;">下一题 ➡️</button>
+    </div>
+
+    <script>
+        // 拼音数据
+        const pinyinData = {
+            initials: ['b', 'p', 'm', 'f', 'd', 't', 'n', 'l', 'g', 'k', 'h', 'j', 'q', 'x', 'zh', 'ch', 'sh', 'r', 'z', 'c', 's', 'y', 'w'],
+            singleFinals: ['a', 'o', 'e', 'i', 'u', 'ü'],
+            compoundFinals: ['ai', 'ei', 'ui', 'ao', 'ou', 'iu', 'ie', 'üe'],
+            frontNasal: ['an', 'en', 'in', 'un', 'ün'],
+            backNasal: ['ang', 'eng', 'ing', 'ong'],
+            wholeRecognition: ['zhi', 'chi', 'shi', 'ri', 'zi', 'ci', 'si', 'yi', 'wu', 'yu', 'ye', 'yue', 'yuan', 'yin', 'yun', 'ying']
+        };
+
+        // 选项类型
+        const optionTypes = ['声母', '单韵母', '复韵母', '整体认读音节'];
+
+        // 游戏状态
+        let currentPinyin = '';
+        let currentType = '';
+        let score = 0;
+        let total = 0;
+        let answered = false;
+
+        // 随机选择一个拼音
+        function getRandomPinyin() {
+            const typeKeys = ['initials', 'singleFinals', 'compoundFinals', 'wholeRecognition'];
+            const randomType = typeKeys[Math.floor(Math.random() * typeKeys.length)];
+            const pinyinList = pinyinData[randomType];
+            const randomPinyin = pinyinList[Math.floor(Math.random() * pinyinList.length)];
+            
+            return {
+                pinyin: randomPinyin,
+                type: randomType
+            };
+        }
+
+        // 获取类型的中文名称
+        function getTypeName(type) {
+            const typeMap = {
+                'initials': '声母',
+                'singleFinals': '单韵母',
+                'compoundFinals': '复韵母',
+                'frontNasal': '前鼻韵母',
+                'backNasal': '后鼻韵母',
+                'wholeRecognition': '整体认读音节'
+            };
+            return typeMap[type] || type;
+        }
+
+        // 显示新题目
+        function showQuestion() {
+            const { pinyin, type } = getRandomPinyin();
+            currentPinyin = pinyin;
+            currentType = type;
+            answered = false;
+
+            document.getElementById('pinyinText').textContent = pinyin;
+            document.getElementById('pinyinText').classList.add('bounce');
+            setTimeout(() => {
+                document.getElementById('pinyinText').classList.remove('bounce');
+            }, 500);
+
+            document.getElementById('result').style.display = 'none';
+            document.getElementById('nextBtn').style.display = 'none';
+
+            // 启用所有按钮
+            for (let i = 0; i < 4; i++) {
+                document.getElementById(`option${i}`).disabled = false;
+                document.getElementById(`option${i}`).style.opacity = '1';
+            }
+
+            // 随机打乱选项顺序
+            const correctType = getTypeName(type);
+            const options = [...optionTypes];
+            
+            // 确保正确答案在选项中
+            if (!options.includes(correctType)) {
+                options[0] = correctType;
+            }
+
+            // 打乱选项
+            for (let i = options.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [options[i], options[j]] = [options[j], options[i]];
+            }
+
+            // 更新按钮文本
+            for (let i = 0; i < 4; i++) {
+                document.getElementById(`option${i}`).textContent = options[i];
+                document.getElementById(`option${i}`).dataset.type = options[i];
+            }
+        }
+
+        // 检查答案
+        function checkAnswer(optionIndex) {
+            if (answered) return;
+            answered = true;
+
+            total++;
+            const selectedType = document.getElementById(`option${optionIndex}`).dataset.type;
+            const correctType = getTypeName(currentType);
+            const resultDiv = document.getElementById('result');
+
+            // 禁用所有按钮
+            for (let i = 0; i < 4; i++) {
+                document.getElementById(`option${i}`).disabled = true;
+                if (i === optionIndex) {
+                    if (selectedType === correctType) {
+                        document.getElementById(`option${i}`).style.opacity = '1';
+                    } else {
+                        document.getElementById(`option${i}`).style.opacity = '0.5';
+                    }
+                } else {
+                    if (document.getElementById(`option${i}`).dataset.type === correctType) {
+                        document.getElementById(`option${i}`).style.opacity = '1';
+                    } else {
+                        document.getElementById(`option${i}`).style.opacity = '0.5';
+                    }
+                }
+            }
+
+            if (selectedType === correctType) {
+                score++;
+                resultDiv.textContent = '🎉 答对了！太棒了！ 🎉';
+                resultDiv.className = 'result correct';
+                document.getElementById('pinyinText').classList.add('bounce');
+            } else {
+                resultDiv.textContent = `😅 答错了！正确答案是：${correctType}`;
+                resultDiv.className = 'result wrong';
+                document.getElementById('pinyinText').classList.add('shake');
+            }
+
+            setTimeout(() => {
+                document.getElementById('pinyinText').classList.remove('bounce', 'shake');
+            }, 500);
+
+            resultDiv.style.display = 'block';
+            document.getElementById('nextBtn').style.display = 'block';
+
+            // 更新分数
+            document.getElementById('score').textContent = score;
+            document.getElementById('total').textContent = total;
+        }
+
+        // 下一题
+        function nextQuestion() {
+            showQuestion();
+        }
+
+        // 初始化
+        showQuestion();
+    </script>
+</body>
+</html>
