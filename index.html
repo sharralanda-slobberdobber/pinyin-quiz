@@ -13,7 +13,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Comic Sans MS', 'Microsoft YaHei', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background: linear-gradient(135deg, #E8D9C8 0%, #D4C4B8 50%, #C8B8A8 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -23,68 +23,68 @@
         }
 
         .container {
-            background: linear-gradient(145deg, #ffffff 0%, #f0f7ff 100%);
+            background: linear-gradient(145deg, #FAF8F5 0%, #F5F0E8 100%);
             border-radius: 30px;
-            padding: 40px;
+            padding: 20px;
             max-width: 600px;
             width: 100%;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            border: 4px solid #ff6b9d;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 3px solid #C8B8A8;
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
         }
 
         h1 {
             text-align: center;
-            color: #ff6b9d;
-            font-size: 2.5em;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            color: #8B7355;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
         }
 
         .emoji-decoration {
             text-align: center;
-            font-size: 3em;
-            margin-bottom: 20px;
+            font-size: 2em;
+            margin-bottom: 10px;
         }
 
         .pinyin-display {
-            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            background: linear-gradient(135deg, #F5E6D3 0%, #E8D9C8 100%);
             border-radius: 20px;
-            padding: 30px;
+            padding: 20px;
             text-align: center;
-            margin-bottom: 30px;
-            border: 3px solid #f39c12;
-            box-shadow: 0 8px 20px rgba(243, 156, 18, 0.3);
+            margin-bottom: 15px;
+            border: 2px solid #D4C4B8;
+            box-shadow: 0 8px 20px rgba(212, 196, 184, 0.3);
         }
 
         .pinyin-text {
-            font-size: 4em;
-            color: #2c3e50;
+            font-size: 3em;
+            color: #5D4E37;
             font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
         }
 
         .question {
             text-align: center;
-            font-size: 1.5em;
-            color: #3498db;
-            margin-bottom: 25px;
+            font-size: 1.2em;
+            color: #7D8471;
+            margin-bottom: 15px;
             font-weight: bold;
         }
 
         .options {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 30px;
+            gap: 10px;
+            margin-bottom: 15px;
         }
 
         .option-btn {
-            padding: 20px;
-            font-size: 1.3em;
+            padding: 15px;
+            font-size: 1.1em;
             border: none;
-            border-radius: 15px;
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
             font-weight: bold;
@@ -102,63 +102,67 @@
         }
 
         .option-1 {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
-            border: 3px solid #c0392b;
+            background: linear-gradient(135deg, #E8B4B8 0%, #D4A5A5 100%);
+            border: 2px solid #C49498;
+            color: #5D4E37;
         }
 
         .option-2 {
-            background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
-            border: 3px solid #16a085;
+            background: linear-gradient(135deg, #A8C0C8 0%, #9DB4C0 100%);
+            border: 2px solid #8DA8B0;
+            color: #5D4E37;
         }
 
         .option-3 {
-            background: linear-gradient(135deg, #a8e6cf 0%, #56ab2f 100%);
-            border: 3px solid #27ae60;
+            background: linear-gradient(135deg, #B8C9A8 0%, #A8B89A 100%);
+            border: 2px solid #98A888;
+            color: #5D4E37;
         }
 
         .option-4 {
-            background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
-            border: 3px solid #8e44ad;
+            background: linear-gradient(135deg, #C8B8D4 0%, #B8A8C4 100%);
+            border: 2px solid #A898B4;
+            color: #5D4E37;
         }
 
         .result {
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             border-radius: 15px;
-            margin-bottom: 20px;
-            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-size: 1.2em;
             font-weight: bold;
             display: none;
         }
 
         .result.correct {
-            background: linear-gradient(135deg, #a8e6cf 0%, #56ab2f 100%);
-            color: white;
-            border: 3px solid #27ae60;
+            background: linear-gradient(135deg, #B8C9A8 0%, #A8B89A 100%);
+            color: #5D4E37;
+            border: 2px solid #98A888;
             display: block;
         }
 
         .result.wrong {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
-            color: white;
-            border: 3px solid #c0392b;
+            background: linear-gradient(135deg, #E8B4B8 0%, #D4A5A5 100%);
+            color: #5D4E37;
+            border: 2px solid #C49498;
             display: block;
         }
 
         .next-btn {
             display: block;
             width: 100%;
-            padding: 20px;
-            font-size: 1.5em;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            padding: 15px;
+            font-size: 1.2em;
+            background: linear-gradient(135deg, #C8B8D4 0%, #B8A8C4 100%);
+            color: #5D4E37;
             border: none;
-            border-radius: 15px;
+            border-radius: 12px;
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s ease;
-            border: 3px solid #5b4cdb;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            border: 2px solid #A898B4;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
         }
 
         .next-btn:hover {
@@ -168,20 +172,21 @@
 
         .score {
             text-align: center;
-            font-size: 1.3em;
-            color: #2c3e50;
-            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: #5D4E37;
+            margin-top: 15px;
+            margin-bottom: 10px;
             font-weight: bold;
-            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
-            padding: 15px;
-            border-radius: 15px;
-            border: 3px solid #f39c12;
+            background: linear-gradient(135deg, #F5E6D3 0%, #E8D9C8 100%);
+            padding: 10px;
+            border-radius: 12px;
+            border: 2px solid #D4C4B8;
         }
 
         .stars {
             text-align: center;
-            font-size: 2em;
-            margin-bottom: 10px;
+            font-size: 1.5em;
+            margin-bottom: 5px;
         }
 
         @keyframes bounce {
@@ -202,6 +207,149 @@
         .shake {
             animation: shake 0.5s ease;
         }
+
+        .sound-btn {
+            background: linear-gradient(135deg, #A8C0C8 0%, #9DB4C0 100%);
+            border: 2px solid #8DA8B0;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-left: 8px;
+            color: #5D4E37;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .sound-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(9, 132, 227, 0.4);
+        }
+
+        .pinyin-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            justify-content: center;
+        }
+
+        .nav-btn {
+            padding: 8px 15px;
+            font-size: 0.9em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #5D4E37;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-btn.wrong-questions {
+            background: linear-gradient(135deg, #E8B4B8 0%, #D4A5A5 100%);
+            border: 2px solid #C49498;
+            color: #5D4E37;
+        }
+
+        .nav-btn.history {
+            background: linear-gradient(135deg, #C8B8D4 0%, #B8A8C4 100%);
+            border: 2px solid #A898B4;
+            color: #5D4E37;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, #FAF8F5 0%, #F5F0E8 100%);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 3px solid #C8B8A8;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 1.5em;
+            color: #8B7355;
+            font-weight: bold;
+        }
+
+        .close-btn {
+            background: #E8B4B8;
+            color: #5D4E37;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        .wrong-item {
+            background: linear-gradient(135deg, #F5E6D3 0%, #E8D9C8 100%);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border: 2px solid #D4C4B8;
+        }
+
+        .wrong-item p {
+            margin: 5px 0;
+            color: #5D4E37;
+        }
+
+        .history-item {
+            background: linear-gradient(135deg, #B8C9A8 0%, #A8B89A 100%);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border: 2px solid #98A888;
+        }
+
+        .history-item p {
+            margin: 5px 0;
+            color: #5D4E37;
+        }
+
+        .empty-message {
+            text-align: center;
+            color: #8B8B7A;
+            font-size: 1.2em;
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
@@ -210,14 +358,19 @@
         <h1>拼音小测试</h1>
         <div class="emoji-decoration">🐼🦊🐰🐻🐨</div>
         
-        <div class="score">
-            <div class="stars">⭐⭐⭐</div>
-            <div>得分: <span id="score">0</span> / <span id="total">0</span></div>
+        <div class="nav-buttons">
+            <button class="nav-btn wrong-questions" onclick="showWrongQuestions()">📝 错题集</button>
+            <button class="nav-btn history" onclick="showHistory()">📊 成绩记录</button>
         </div>
 
         <div class="pinyin-display">
-            <div class="pinyin-text" id="pinyinText">?</div>
+            <div class="pinyin-container">
+                <div class="pinyin-text" id="pinyinText">?</div>
+                <button class="sound-btn" onclick="playPinyinSound()" title="听发音">🔊</button>
+            </div>
         </div>
+
+        <div class="result" id="result"></div>
 
         <div class="question">这个拼音是？</div>
 
@@ -228,9 +381,34 @@
             <button class="option-btn option-4" onclick="checkAnswer(3)" id="option3">整体认读音节</button>
         </div>
 
-        <div class="result" id="result"></div>
-
         <button class="next-btn" onclick="nextQuestion()" id="nextBtn" style="display: none;">下一题 ➡️</button>
+
+        <div class="score">
+            <div class="stars">⭐⭐⭐</div>
+            <div>得分: <span id="score">0</span> / <span id="total">0</span></div>
+        </div>
+    </div>
+
+    <!-- 错题集模态框 -->
+    <div class="modal" id="wrongModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">📝 错题集</div>
+                <button class="close-btn" onclick="closeWrongModal()">×</button>
+            </div>
+            <div id="wrongList"></div>
+        </div>
+    </div>
+
+    <!-- 成绩记录模态框 -->
+    <div class="modal" id="historyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">📊 成绩记录</div>
+                <button class="close-btn" onclick="closeHistoryModal()">×</button>
+            </div>
+            <div id="historyList"></div>
+        </div>
     </div>
 
     <script>
@@ -253,6 +431,8 @@
         let score = 0;
         let total = 0;
         let answered = false;
+        let wrongQuestions = JSON.parse(localStorage.getItem('wrongQuestions')) || [];
+        let scoreHistory = JSON.parse(localStorage.getItem('scoreHistory')) || [];
 
         // 随机选择一个拼音
         function getRandomPinyin() {
@@ -357,10 +537,14 @@
                 resultDiv.textContent = '🎉 答对了！太棒了！ 🎉';
                 resultDiv.className = 'result correct';
                 document.getElementById('pinyinText').classList.add('bounce');
+                playCorrectSound();
             } else {
                 resultDiv.textContent = `😅 答错了！正确答案是：${correctType}`;
                 resultDiv.className = 'result wrong';
                 document.getElementById('pinyinText').classList.add('shake');
+                playWrongSound();
+                // 添加到错题集
+                addToWrongQuestions(currentPinyin, correctType, selectedType);
             }
 
             setTimeout(() => {
@@ -378,6 +562,181 @@
         // 下一题
         function nextQuestion() {
             showQuestion();
+        }
+
+        // 播放拼音发音
+        function playPinyinSound() {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(currentPinyin);
+                utterance.lang = 'zh-CN';
+                utterance.rate = 0.8;
+                utterance.pitch = 1.2;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        // 播放答对音效
+        function playCorrectSound() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.value = 523.25; // C5
+            oscillator.type = 'sine';
+            gainNode.gain.value = 0.3;
+            
+            oscillator.start();
+            
+            setTimeout(() => {
+                oscillator.frequency.value = 659.25; // E5
+            }, 100);
+            
+            setTimeout(() => {
+                oscillator.frequency.value = 783.99; // G5
+            }, 200);
+            
+            setTimeout(() => {
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+                oscillator.stop(audioContext.currentTime + 0.3);
+            }, 300);
+        }
+
+        // 播放答错音效
+        function playWrongSound() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.value = 200;
+            oscillator.type = 'sawtooth';
+            gainNode.gain.value = 0.2;
+            
+            oscillator.start();
+            
+            setTimeout(() => {
+                oscillator.frequency.value = 150;
+            }, 100);
+            
+            setTimeout(() => {
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+                oscillator.stop(audioContext.currentTime + 0.3);
+            }, 300);
+        }
+
+        // 添加到错题集
+        function addToWrongQuestions(pinyin, correctType, wrongType) {
+            const existingIndex = wrongQuestions.findIndex(q => q.pinyin === pinyin);
+            if (existingIndex === -1) {
+                wrongQuestions.push({
+                    pinyin: pinyin,
+                    correctType: correctType,
+                    wrongType: wrongType,
+                    timestamp: new Date().toLocaleString()
+                });
+                localStorage.setItem('wrongQuestions', JSON.stringify(wrongQuestions));
+            }
+        }
+
+        // 显示错题集
+        function showWrongQuestions() {
+            const modal = document.getElementById('wrongModal');
+            const list = document.getElementById('wrongList');
+            
+            if (wrongQuestions.length === 0) {
+                list.innerHTML = '<div class="empty-message">🎉 太棒了！还没有错题哦！</div>';
+            } else {
+                list.innerHTML = wrongQuestions.map((q, index) => `
+                    <div class="wrong-item">
+                        <p><strong>拼音：</strong>${q.pinyin}</p>
+                        <p><strong>正确答案：</strong>${q.correctType}</p>
+                        <p><strong>你的选择：</strong>${q.wrongType}</p>
+                        <p><strong>时间：</strong>${q.timestamp}</p>
+                        <button onclick="removeWrongQuestion(${index})" style="margin-top: 10px; padding: 5px 10px; background: #27ae60; color: white; border: none; border-radius: 5px; cursor: pointer;">删除</button>
+                    </div>
+                `).join('');
+            }
+            
+            modal.style.display = 'flex';
+        }
+
+        // 关闭错题集模态框
+        function closeWrongModal() {
+            document.getElementById('wrongModal').style.display = 'none';
+        }
+
+        // 删除错题
+        function removeWrongQuestion(index) {
+            wrongQuestions.splice(index, 1);
+            localStorage.setItem('wrongQuestions', JSON.stringify(wrongQuestions));
+            showWrongQuestions();
+        }
+
+        // 显示成绩记录
+        function showHistory() {
+            const modal = document.getElementById('historyModal');
+            const list = document.getElementById('historyList');
+            
+            if (scoreHistory.length === 0) {
+                list.innerHTML = '<div class="empty-message">📝 还没有成绩记录哦！完成测试后会自动记录。</div>';
+            } else {
+                list.innerHTML = scoreHistory.slice().reverse().map((h, index) => `
+                    <div class="history-item">
+                        <p><strong>得分：</strong>${h.score} / ${h.total}</p>
+                        <p><strong>正确率：</strong>${h.percentage}%</p>
+                        <p><strong>时间：</strong>${h.timestamp}</p>
+                    </div>
+                `).join('');
+            }
+            
+            modal.style.display = 'flex';
+        }
+
+        // 关闭成绩记录模态框
+        function closeHistoryModal() {
+            document.getElementById('historyModal').style.display = 'none';
+        }
+
+        // 保存成绩记录
+        function saveScore() {
+            if (total > 0) {
+                const percentage = Math.round((score / total) * 100);
+                scoreHistory.push({
+                    score: score,
+                    total: total,
+                    percentage: percentage,
+                    timestamp: new Date().toLocaleString()
+                });
+                localStorage.setItem('scoreHistory', JSON.stringify(scoreHistory));
+            }
+        }
+
+        // 重置游戏
+        function resetGame() {
+            if (total > 0) {
+                saveScore();
+            }
+            score = 0;
+            total = 0;
+            document.getElementById('score').textContent = score;
+            document.getElementById('total').textContent = total;
+        }
+
+        // 点击模态框外部关闭
+        window.onclick = function(event) {
+            const wrongModal = document.getElementById('wrongModal');
+            const historyModal = document.getElementById('historyModal');
+            if (event.target === wrongModal) {
+                wrongModal.style.display = 'none';
+            }
+            if (event.target === historyModal) {
+                historyModal.style.display = 'none';
+            }
         }
 
         // 初始化
